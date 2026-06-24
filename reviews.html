@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Reviews — Jehova Transportation</title>
+<meta name="description" content="Read what riders are saying about Jehova Transportation, taxi and tour service on St. Maarten / St. Martin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,680;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B2E33;
+    --ink2:#0E4A4C;
+    --petrol:#127C77;
+    --lagoon:#16AFA6;
+    --sand:#F7EBCC;
+    --paper:#FFFCF5;
+    --coral:#FF6B4A;
+    --coral-dark:#DE4E2E;
+    --charcoal:#1D2420;
+    --whatsapp:#25D366;
+    --line: rgba(16,42,46,0.16);
+    --radius: 14px;
+    --max: 1120px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:'Inter',sans-serif; color:var(--charcoal);
+    background:var(--paper); -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:680; line-height:1.08; margin:0;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--coral); font-weight:600;
+  }
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+
+  header{
+    background:linear-gradient(165deg, var(--ink) 0%, var(--ink2) 60%, var(--petrol) 100%);
+    color:var(--paper); padding:36px 0 70px;
+  }
+  header .top-row{display:flex; align-items:center; justify-content:space-between; margin-bottom:46px;}
+  .brand{
+    display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:680;
+    font-size:1.1rem; text-decoration:none; color:var(--paper);
+  }
+  .brand .dot{width:9px;height:9px;border-radius:50%; background:var(--coral); flex:none;}
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px; font-size:0.88rem; font-weight:500;
+    text-decoration:none; color:rgba(251,247,238,0.85);
+  }
+  .back-link svg{width:16px;height:16px;}
+  .back-link:hover{color:#fff;}
+  header h1{font-size:clamp(2rem,4.4vw,2.8rem);}
+  header p{font-size:1.02rem; line-height:1.6; opacity:0.85; max-width:540px; margin-top:14px;}
+
+  main{padding:56px 0 90px;}
+  .reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:880px){ .reviews-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:600px){ .reviews-grid{grid-template-columns:1fr;} }
+
+  .review-card{
+    background:var(--sand); border-radius:var(--radius); padding:24px; border:1px solid var(--line);
+  }
+  .review-card .stars-row{display:flex; gap:3px; margin-bottom:10px;}
+  .review-card .stars-row svg{width:15px;height:15px;}
+  .review-card p.comment{font-size:0.95rem; line-height:1.6; color:#3c3c33; margin:0 0 14px;}
+  .review-card .who{font-family:'IBM Plex Mono',monospace; font-size:0.76rem; color:#8a8a7e;}
+
+  .state-msg{
+    grid-column:1 / -1; text-align:center; padding:50px 20px; color:#8a8a7e; font-size:0.98rem;
+  }
+
+  .load-more-row{display:flex; justify-content:center; margin-top:36px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; font-family:'Inter',sans-serif; font-weight:600;
+    font-size:0.95rem; padding:13px 26px; border-radius:999px; border:1.5px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; text-decoration:none;
+    transition:background .15s ease;
+  }
+  .btn:hover{background:var(--sand);}
+  .btn:disabled{opacity:0.6; cursor:default;}
+
+  footer{
+    background:var(--ink); color:rgba(251,247,238,0.75); padding:34px 0; font-size:0.85rem;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+  footer a{color:var(--coral); text-decoration:none;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="top-row">
+      <a href="index.html" class="brand"><span class="dot"></span>Jehova Transportation</a>
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5m7-7l-7 7 7 7"/></svg>
+        Back to site
+      </a>
+    </div>
+    <p class="eyebrow">Rider reviews</p>
+    <h1>Every review, all in one place.</h1>
+    <p>A running record of what riders have said about their trips with Jehova Transportation across St. Maarten / St. Martin.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="reviews-grid" id="reviewsGrid">
+    <p class="state-msg" id="initialState">Loading reviews…</p>
+  </div>
+  <div class="load-more-row" id="loadMoreRow" style="display:none;">
+    <button type="button" class="btn" id="loadMoreBtn">Load more reviews</button>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; width:100%;">
+    <span>© <span id="year"></span> Jehova Transportation</span>
+    <a href="index.html#reviews">Leave your own review →</a>
+  </div>
+</footer>
+
+<!--
+  Uses the same Firebase project as index.html. If you update the config
+  in index.html, update it here too — see README.md.
+-->
+<script>
+  window.FIREBASE_CONFIG = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+  import {
+    getFirestore, collection, getDocs, query, where,
+    orderBy, limit, startAfter
+  } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+  const cfg = window.FIREBASE_CONFIG;
+  const FIREBASE_ENABLED = !!cfg && cfg.apiKey && cfg.apiKey !== "YOUR_API_KEY";
+  let db = null;
+  if (FIREBASE_ENABLED) {
+    try {
+      const app = initializeApp(cfg);
+      db = getFirestore(app);
+    } catch (err) {
+      console.error("Firebase failed to initialize:", err);
+    }
+  }
+
+  const PAGE_SIZE = 12;
+  const grid = document.getElementById('reviewsGrid');
+  const loadMoreRow = document.getElementById('loadMoreRow');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  let lastDoc = null;
+  let firstLoad = true;
+
+  function escapeHtml(str){
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+  function starsMarkup(rating){
+    const r = Number(rating) || 5;
+    let html = '<div class="stars-row">';
+    for (let i = 1; i <= 5; i++){
+      html += `<svg viewBox="0 0 20 20" fill="currentColor" style="color:${i <= r ? '#FF6B4A' : '#cfc8b2'}"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 14.9 4.4 18.1l1.4-6.3L1 7.5l6.4-.6z"/></svg>`;
+    }
+    return html + '</div>';
+  }
+  function renderCard(r){
+    const card = document.createElement('div');
+    card.className = 'review-card';
+    card.innerHTML = `
+      ${starsMarkup(r.rating)}
+      <p class="comment">"${escapeHtml(r.comment || '')}"</p>
+      <p class="who">— ${escapeHtml(r.name || 'Rider')}</p>
+    `;
+    return card;
+  }
+
+  async function loadPage(){
+    if (!FIREBASE_ENABLED || !db) {
+      grid.innerHTML = '<p class="state-msg">Reviews aren\'t connected yet — see README.md to set up the free Firebase database.</p>';
+      return;
+    }
+    loadMoreBtn.disabled = true;
+    loadMoreBtn.textContent = 'Loading…';
+    try {
+      const constraints = [
+        collection(db, 'reviews'),
+        where('approved', '==', true),
+        orderBy('createdAt', 'desc'),
+        limit(PAGE_SIZE)
+      ];
+      if (lastDoc) constraints.push(startAfter(lastDoc));
+      const q = query(...constraints);
+      const snap = await getDocs(q);
+
+      if (firstLoad) {
+        grid.innerHTML = '';
+        firstLoad = false;
+      }
+
+      if (snap.empty) {
+        if (grid.children.length === 0) {
+          grid.innerHTML = '<p class="state-msg">No reviews yet — be the first to leave one.</p>';
+        }
+        loadMoreRow.style.display = 'none';
+        return;
+      }
+
+      snap.forEach(doc => grid.appendChild(renderCard(doc.data())));
+      lastDoc = snap.docs[snap.docs.length - 1];
+      loadMoreRow.style.display = snap.size === PAGE_SIZE ? 'flex' : 'none';
+    } catch (err) {
+      console.error("Couldn't load reviews:", err);
+      if (grid.children.length === 0) {
+        grid.innerHTML = '<p class="state-msg">Couldn\'t load reviews right now — please refresh in a moment.</p>';
+      }
+    } finally {
+      loadMoreBtn.disabled = false;
+      loadMoreBtn.textContent = 'Load more reviews';
+    }
+  }
+
+  loadMoreBtn.addEventListener('click', loadPage);
+  loadPage();
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

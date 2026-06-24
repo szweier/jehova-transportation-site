@@ -1,543 +1,1327 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jehova Transportation — Taxi &amp; Tour Service, St. Maarten / St. Martin</title>
-<meta name="description" content="Reliable taxi, airport transfer, and island tour service across both sides of St. Maarten / St. Martin. Message us on WhatsApp or request a pickup online.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,680;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#0B2E33;
-    --ink2:#0E4A4C;
-    --petrol:#127C77;
-    --petrol-light:#3FAFA6;
-    --lagoon:#16AFA6;
-    --lagoon-light:#7FE0D3;
-    --sand:#F7EBCC;
-    --paper:#FFFCF5;
-    --coral:#FF6B4A;
-    --coral-dark:#DE4E2E;
-    --palm:#2E8B6F;
-    --charcoal:#1D2420;
-    --whatsapp:#25D366;
-    --line: rgba(16,42,46,0.16);
-    --radius: 14px;
-    --max: 1120px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    font-family:'Inter',sans-serif;
-    color:var(--charcoal);
-    background:var(--paper);
-    -webkit-font-smoothing:antialiased;
-  }
-  img{max-width:100%;display:block;}
-  a{color:inherit;}
-  h1,h2,h3{
-    font-family:'Fraunces',serif;
-    font-weight:680;
-    line-height:1.05;
-    margin:0;
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.72rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--coral);
-    font-weight:600;
-  }
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
-  section{padding:88px 0;}
-  @media (max-width:640px){ section{padding:64px 0;} }
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    font-family:'Inter',sans-serif;
-    font-weight:600;
-    font-size:0.98rem;
-    padding:14px 26px;
-    border-radius:999px;
-    border:1.5px solid transparent;
-    cursor:pointer;
-    text-decoration:none;
-    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-  }
-  .btn:active{transform:translateY(1px);}
-  .btn-primary{background:var(--whatsapp); color:#fff;}
-  .btn-primary:hover{background:#1fb858; box-shadow:0 6px 18px rgba(37,211,102,0.35);}
-  .btn-outline{background:transparent; color:var(--paper); border-color:rgba(251,247,238,0.55);}
-  .btn-outline:hover{border-color:var(--paper); background:rgba(251,247,238,0.08);}
-  .btn-dark{background:var(--ink); color:var(--paper);}
-  .btn-dark:hover{background:#0b1f22;}
-  .btn-coral{background:var(--coral); color:#fff;}
-  .btn-coral:hover{background:var(--coral-dark);}
-  .btn svg{width:18px;height:18px;flex:none;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jehova Transportation — Taxi &amp; Tour Service, St. Maarten / St. Martin</title>
+  <meta name="description"
+    content="Reliable taxi, airport transfer, and island tour service across both sides of St. Maarten / St. Martin. Message us on WhatsApp or request a pickup online.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,680;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0B2E33;
+      --ink2: #0E4A4C;
+      --petrol: #127C77;
+      --petrol-light: #3FAFA6;
+      --lagoon: #16AFA6;
+      --lagoon-light: #7FE0D3;
+      --sand: #F7EBCC;
+      --paper: #FFFCF5;
+      --coral: #FF6B4A;
+      --coral-dark: #DE4E2E;
+      --palm: #2E8B6F;
+      --charcoal: #1D2420;
+      --whatsapp: #25D366;
+      --line: rgba(16, 42, 46, 0.16);
+      --radius: 14px;
+      --max: 1120px;
+    }
 
-  /* ---------- Header ---------- */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    padding:18px 0;
-    transition:background .25s ease, padding .25s ease, box-shadow .25s ease;
-  }
-  header .wrap{display:flex; align-items:center; justify-content:space-between;}
-  .brand{
-    display:flex; align-items:center; gap:10px;
-    font-family:'Fraunces',serif; font-weight:680; font-size:1.18rem;
-    color:var(--paper); text-decoration:none; letter-spacing:0.01em;
-  }
-  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--coral); flex:none;}
-  nav.links{display:flex; gap:28px; align-items:center;}
-  nav.links a{
-    font-size:0.93rem; font-weight:500; color:var(--paper); text-decoration:none; opacity:0.88;
-  }
-  nav.links a:hover{opacity:1;}
-  header.scrolled{background:rgba(16,42,46,0.96); padding:12px 0; box-shadow:0 4px 20px rgba(0,0,0,0.12);}
-  .nav-toggle{display:none; background:none; border:none; cursor:pointer; padding:6px;}
-  .nav-toggle svg{width:26px;height:26px;color:var(--paper);}
-  .mobile-panel{
-    display:none; position:fixed; inset:0; background:var(--ink); z-index:99;
-    padding:100px 28px 28px; flex-direction:column; gap:22px;
-  }
-  .mobile-panel a{color:var(--paper); font-family:'Fraunces',serif; font-size:1.6rem; text-decoration:none;}
-  .mobile-panel.open{display:flex;}
-  .close-panel{position:absolute; top:22px; right:24px; background:none; border:none; cursor:pointer;}
-  .close-panel svg{width:26px;height:26px;color:var(--paper);}
-  @media (max-width:760px){
-    nav.links{display:none;}
-    .nav-toggle{display:block;}
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  /* ---------- Hero ---------- */
-  .hero{
-    background:linear-gradient(165deg, var(--ink) 0%, var(--ink2) 38%, var(--petrol) 68%, var(--lagoon) 100%);
-    color:var(--paper);
-    padding:160px 0 130px;
-    position:relative;
-    overflow:hidden;
-  }
-  .wave-divider{
-    position:absolute; left:0; right:0; width:100%; height:auto;
-    display:block; line-height:0;
-  }
-  .wave-divider svg{width:100%; height:64px; display:block;}
-  @media (max-width:640px){ .wave-divider svg{height:36px;} }
-  .hero .wrap{position:relative; z-index:2;}
-  .hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:center;}
-  @media (max-width:880px){ .hero-grid{grid-template-columns:1fr;} }
-  .hero h1{font-size:clamp(2.3rem, 5vw, 3.5rem); margin-top:14px;}
-  .hero h1 em{font-style:italic; color:var(--coral);}
-  .hero p.lead{font-size:1.08rem; line-height:1.6; opacity:0.86; max-width:520px; margin:20px 0 32px;}
-  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
-  .route-card{
-    background:rgba(251,247,238,0.06);
-    border:1px solid rgba(251,247,238,0.16);
-    border-radius:var(--radius);
-    padding:26px;
-  }
-  .route-svg{width:100%; height:auto; display:block; margin-bottom:6px;}
-  .route-stops{display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; color:rgba(251,247,238,0.75); margin-top:4px;}
-  .route-label{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; letter-spacing:0.05em; color:rgba(251,247,238,0.6); margin-bottom:14px;}
-  #car-dot{ offset-path:path('M10,60 C 80,10 160,110 230,55 C 300,0 360,90 430,40'); }
-  @media (prefers-reduced-motion:no-preference){
-    #car-dot{ animation: drive 5.5s linear infinite; }
-  }
-  @keyframes drive{ from{offset-distance:0%;} to{offset-distance:100%;} }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* ---------- Section headings ---------- */
-  .section-head{max-width:620px; margin-bottom:48px;}
-  .section-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem); margin-top:10px;}
-  .section-head p{margin-top:14px; font-size:1.02rem; line-height:1.6; color:#4a4a42;}
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--charcoal);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+    }
 
-  /* ---------- Services ---------- */
-  .services{background:var(--sand);}
-  .service-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
-  @media (max-width:880px){ .service-grid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:560px){ .service-grid{grid-template-columns:1fr;} }
-  .service-card{
-    background:var(--paper); border-radius:var(--radius); padding:26px;
-    border:1px solid var(--line);
-  }
-  .service-card .icon{
-    width:44px;height:44px;border-radius:50%; color:#fff;
-    display:flex; align-items:center; justify-content:center; margin-bottom:16px;
-  }
-  .service-card .icon.icon-lagoon{background:linear-gradient(135deg,var(--lagoon),var(--petrol));}
-  .service-card .icon.icon-coral{background:linear-gradient(135deg,var(--coral),var(--coral-dark));}
-  .service-card .icon.icon-palm{background:linear-gradient(135deg,var(--palm),#1F6B53);}
-  .service-card .icon svg{width:22px;height:22px;}
-  .service-card h3{font-size:1.08rem; margin-bottom:8px;}
-  .service-card p{font-size:0.93rem; line-height:1.55; color:#52523f; margin:0;}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-  /* ---------- Fare card (signature element) ---------- */
-  .fares{background:linear-gradient(180deg, var(--ink) 0%, var(--ink2) 100%); color:var(--paper); position:relative; overflow:hidden;}
-  .fares .section-head p{color:rgba(251,247,238,0.72);}
-  .fares .eyebrow{color:var(--coral);}
-  .card-stage{display:flex; justify-content:center;}
-  .permit{
-    background:var(--paper); color:var(--charcoal);
-    width:100%; max-width:480px;
-    border-radius:10px;
-    padding:30px 28px 24px;
-    position:relative;
-    transform:rotate(-1.4deg);
-    box-shadow:0 30px 60px rgba(0,0,0,0.35);
-    border:1px solid rgba(0,0,0,0.06);
-  }
-  .permit::before{
-    content:"";
-    position:absolute; top:18px; right:18px;
-    width:74px; height:74px;
-    border:2.5px solid var(--coral-dark);
-    border-radius:50%;
-    transform:rotate(14deg);
-    display:flex;
-  }
-  .permit .stamp{
-    position:absolute; top:33px; right:18px; width:74px;
-    text-align:center;
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:600; font-size:0.62rem; letter-spacing:0.03em;
-    color:var(--coral-dark); transform:rotate(14deg);
-    line-height:1.25;
-  }
-  .permit-eyebrow{font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.1em; color:var(--petrol); text-transform:uppercase; font-weight:600;}
-  .permit h3{font-size:1.4rem; margin:8px 0 18px; max-width:280px;}
-  .permit-row{
-    display:flex; justify-content:space-between; align-items:baseline;
-    padding:11px 0; border-bottom:1px dashed var(--line);
-    font-family:'IBM Plex Mono',monospace; font-size:0.85rem;
-  }
-  .permit-row:last-of-type{border-bottom:none;}
-  .permit-row .route{color:var(--charcoal); font-weight:500;}
-  .permit-row .ask{color:var(--petrol); font-size:0.74rem; letter-spacing:0.02em;}
-  .permit-foot{
-    margin-top:18px; font-size:0.78rem; line-height:1.55; color:#5b5b50;
-    border-top:1px solid var(--line); padding-top:14px;
-  }
+    a {
+      color: inherit;
+    }
 
-  /* ---------- Reviews ---------- */
-  .reviews{background:var(--paper);}
-  .review-top{display:grid; grid-template-columns:0.9fr 1.1fr; gap:40px; align-items:start; margin-bottom:46px;}
-  @media (max-width:880px){ .review-top{grid-template-columns:1fr;} }
-  .stat-block{
-    background:var(--sand); border-radius:var(--radius); padding:30px;
-  }
-  .stat-num{font-family:'Fraunces',serif; font-weight:680; font-size:3rem; color:var(--ink);}
-  .stat-sub{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; letter-spacing:0.04em; color:#5b5b50; margin-top:6px;}
-  .stars-row{display:flex; gap:3px; margin-top:14px;}
-  .stars-row svg{width:18px;height:18px; color:var(--coral);}
-  .testimonial{
-    background:var(--ink); color:var(--paper); border-radius:var(--radius); padding:30px;
-  }
-  .testimonial p{font-family:'Fraunces',serif; font-style:italic; font-size:1.18rem; line-height:1.5; margin:0 0 16px;}
-  .testimonial .who{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; letter-spacing:0.03em; color:rgba(251,247,238,0.65);}
-  .testimonial .who a{color:var(--coral); text-decoration:none;}
+    h1,
+    h2,
+    h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 680;
+      line-height: 1.05;
+      margin: 0;
+    }
 
-  .live-reviews{margin-bottom:46px;}
-  .live-reviews-label{font-family:'IBM Plex Mono',monospace; font-size:0.74rem; letter-spacing:0.08em; text-transform:uppercase; color:#8a8a7e; margin-bottom:16px;}
-  .live-reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
-  @media (max-width:880px){ .live-reviews-grid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:600px){ .live-reviews-grid{grid-template-columns:1fr;} }
-  .review-card{
-    background:var(--sand); border-radius:var(--radius); padding:22px; border:1px solid var(--line);
-  }
-  .review-card .stars-row svg{width:14px;height:14px;}
-  .review-card p{font-size:0.93rem; line-height:1.55; color:#3c3c33; margin:10px 0 12px;}
-  .review-card .who{font-family:'IBM Plex Mono',monospace; font-size:0.74rem; color:#8a8a7e;}
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--coral);
+      font-weight: 600;
+    }
 
-  .reviews-empty{
-    grid-column:1 / -1; font-size:0.95rem; color:#8a8a7e; padding:18px 0;
-  }
-  .form-status{font-size:0.88rem; margin-top:12px; padding:12px 14px; border-radius:9px; display:none;}
-  .form-status.show{display:block;}
-  .form-status.ok{background:rgba(27,94,99,0.12); color:var(--petrol);}
-  .form-status.err{background:rgba(232,93,61,0.12); color:var(--coral-dark);}
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-  .review-form-wrap{
-    background:var(--sand); border-radius:var(--radius); padding:32px;
-  }
-  .review-form-wrap h3{font-size:1.25rem; margin-bottom:6px;}
-  .review-form-wrap > p{margin:0 0 22px; font-size:0.92rem; color:#52523f; line-height:1.55;}
+    section {
+      padding: 88px 0;
+    }
 
-  /* ---------- Forms (shared) ---------- */
-  .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-  @media (max-width:640px){ .form-grid{grid-template-columns:1fr;} }
-  .field{display:flex; flex-direction:column; gap:6px; margin-bottom:16px;}
-  .field.full{grid-column:1 / -1;}
-  label{font-size:0.8rem; font-weight:600; color:var(--ink);}
-  label .opt{font-weight:400; color:#8a8a7e; font-size:0.76rem;}
-  input, textarea, select{
-    font-family:'Inter',sans-serif; font-size:0.96rem;
-    padding:12px 14px; border-radius:9px; border:1.5px solid var(--line);
-    background:var(--paper); color:var(--charcoal); width:100%;
-  }
-  input:focus, textarea:focus, select:focus{
-    outline:none; border-color:var(--petrol); box-shadow:0 0 0 3px rgba(27,94,99,0.15);
-  }
-  textarea{resize:vertical; min-height:90px;}
-  .star-picker{display:flex; gap:6px;}
-  .star-picker button{
-    background:none; border:none; cursor:pointer; padding:2px;
-  }
-  .star-picker svg{width:26px; height:26px; color:#cfc8b2; transition:color .12s ease;}
-  .star-picker button.active svg, .star-picker button:hover svg{color:var(--coral);}
-  .form-note{font-size:0.78rem; color:#8a8a7e; margin-top:10px; line-height:1.5;}
+    @media (max-width:640px) {
+      section {
+        padding: 64px 0;
+      }
+    }
 
-  /* ---------- Booking ---------- */
-  .book{background:var(--sand); position:relative; overflow:hidden;}
-  .book-grid{display:grid; grid-template-columns:1fr 0.78fr; gap:40px; align-items:start;}
-  @media (max-width:880px){ .book-grid{grid-template-columns:1fr;} }
-  .book-form-card{background:var(--paper); border-radius:var(--radius); padding:34px; border:1px solid var(--line);}
-  .book-side{background:var(--ink); color:var(--paper); border-radius:var(--radius); padding:32px;}
-  .book-side h3{font-size:1.2rem; margin-bottom:14px;}
-  .book-side ul{padding-left:0; margin:0; list-style:none;}
-  .book-side li{
-    display:flex; gap:12px; padding:13px 0; border-bottom:1px solid rgba(251,247,238,0.14);
-    font-size:0.92rem; line-height:1.5; color:rgba(251,247,238,0.85);
-  }
-  .book-side li:last-child{border-bottom:none;}
-  .book-side li svg{width:18px;height:18px; flex:none; margin-top:2px; color:var(--coral);}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.98rem;
+      padding: 14px 26px;
+      border-radius: 999px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
 
-  /* ---------- Contact / Footer ---------- */
-  footer{background:var(--ink); color:rgba(251,247,238,0.85); padding-top:70px;}
-  .foot-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:40px; padding-bottom:50px; border-bottom:1px solid rgba(251,247,238,0.14);}
-  @media (max-width:760px){ .foot-grid{grid-template-columns:1fr;} }
-  footer h4{font-family:'IBM Plex Mono',monospace; font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--coral); margin-bottom:16px;}
-  footer .brand{margin-bottom:14px;}
-  footer p{font-size:0.92rem; line-height:1.6; margin:0 0 10px; color:rgba(251,247,238,0.72);}
-  footer a.contact-link{display:flex; align-items:center; gap:10px; text-decoration:none; color:rgba(251,247,238,0.85); font-size:0.92rem; margin-bottom:12px;}
-  footer a.contact-link svg{width:17px;height:17px; color:var(--coral); flex:none;}
-  .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:22px 0; font-size:0.78rem; color:rgba(251,247,238,0.5);}
+    .btn:active {
+      transform: translateY(1px);
+    }
 
-  /* ---------- Floating WhatsApp ---------- */
-  .float-wa{
-    position:fixed; bottom:22px; right:22px; z-index:90;
-    width:58px; height:58px; border-radius:50%; background:var(--whatsapp);
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 8px 22px rgba(0,0,0,0.28); text-decoration:none;
-    transition:transform .15s ease;
-  }
-  .float-wa:hover{transform:scale(1.06);}
-  .float-wa svg{width:28px;height:28px;color:#fff;}
+    .btn-primary {
+      background: var(--whatsapp);
+      color: #fff;
+    }
 
-  /* ---------- Reveal on scroll ---------- */
-  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
-  .reveal.show{opacity:1; transform:translateY(0);}
-  @media (prefers-reduced-motion:reduce){
-    .reveal{opacity:1; transform:none; transition:none;}
-    html{scroll-behavior:auto;}
-  }
-</style>
+    .btn-primary:hover {
+      background: #1fb858;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--paper);
+      border-color: rgba(251, 247, 238, 0.55);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--paper);
+      background: rgba(251, 247, 238, 0.08);
+    }
+
+    .btn-dark {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .btn-dark:hover {
+      background: #0b1f22;
+    }
+
+    .btn-coral {
+      background: var(--coral);
+      color: #fff;
+    }
+
+    .btn-coral:hover {
+      background: var(--coral-dark);
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      flex: none;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 18px 0;
+      transition: background .25s ease, padding .25s ease, box-shadow .25s ease;
+    }
+
+    header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Fraunces', serif;
+      font-weight: 680;
+      font-size: 1.18rem;
+      color: var(--paper);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .brand .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--coral);
+      flex: none;
+    }
+
+    nav.links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav.links a {
+      font-size: 0.93rem;
+      font-weight: 500;
+      color: var(--paper);
+      text-decoration: none;
+      opacity: 0.88;
+    }
+
+    nav.links a:hover {
+      opacity: 1;
+    }
+
+    header.scrolled {
+      background: rgba(16, 42, 46, 0.96);
+      padding: 12px 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .nav-toggle svg {
+      width: 26px;
+      height: 26px;
+      color: var(--paper);
+    }
+
+    .mobile-panel {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--ink);
+      z-index: 99;
+      padding: 100px 28px 28px;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .mobile-panel a {
+      color: var(--paper);
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      text-decoration: none;
+    }
+
+    .mobile-panel.open {
+      display: flex;
+    }
+
+    .close-panel {
+      position: absolute;
+      top: 22px;
+      right: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .close-panel svg {
+      width: 26px;
+      height: 26px;
+      color: var(--paper);
+    }
+
+    @media (max-width:760px) {
+      nav.links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background: linear-gradient(165deg, var(--ink) 0%, var(--ink2) 38%, var(--petrol) 68%, var(--lagoon) 100%);
+      color: var(--paper);
+      padding: 160px 0 130px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wave-divider {
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: auto;
+      display: block;
+      line-height: 0;
+    }
+
+    .wave-divider svg {
+      width: 100%;
+      height: 64px;
+      display: block;
+    }
+
+    @media (max-width:640px) {
+      .wave-divider svg {
+        height: 36px;
+      }
+    }
+
+    .hero .wrap {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    @media (max-width:880px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 5vw, 3.5rem);
+      margin-top: 14px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--coral);
+    }
+
+    .hero p.lead {
+      font-size: 1.08rem;
+      line-height: 1.6;
+      opacity: 0.86;
+      max-width: 520px;
+      margin: 20px 0 32px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .route-card {
+      background: rgba(251, 247, 238, 0.06);
+      border: 1px solid rgba(251, 247, 238, 0.16);
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+
+    .route-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .route-stops {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      color: rgba(251, 247, 238, 0.75);
+      margin-top: 4px;
+    }
+
+    .route-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      color: rgba(251, 247, 238, 0.6);
+      margin-bottom: 14px;
+    }
+
+    #car-dot {
+      offset-path: path('M10,60 C 80,10 160,110 230,55 C 300,0 360,90 430,40');
+    }
+
+    @media (prefers-reduced-motion:no-preference) {
+      #car-dot {
+        animation: drive 5.5s linear infinite;
+      }
+    }
+
+    @keyframes drive {
+      from {
+        offset-distance: 0%;
+      }
+
+      to {
+        offset-distance: 100%;
+      }
+    }
+
+    /* ---------- Section headings ---------- */
+    .section-head {
+      max-width: 620px;
+      margin-bottom: 48px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+      margin-top: 10px;
+    }
+
+    .section-head p {
+      margin-top: 14px;
+      font-size: 1.02rem;
+      line-height: 1.6;
+      color: #4a4a42;
+    }
+
+    /* ---------- Services ---------- */
+    .services {
+      background: var(--sand);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    @media (max-width:880px) {
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width:560px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-card {
+      background: var(--paper);
+      border-radius: var(--radius);
+      padding: 26px;
+      border: 1px solid var(--line);
+    }
+
+    .service-card .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .service-card .icon.icon-lagoon {
+      background: linear-gradient(135deg, var(--lagoon), var(--petrol));
+    }
+
+    .service-card .icon.icon-coral {
+      background: linear-gradient(135deg, var(--coral), var(--coral-dark));
+    }
+
+    .service-card .icon.icon-palm {
+      background: linear-gradient(135deg, var(--palm), #1F6B53);
+    }
+
+    .service-card .icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .service-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 0.93rem;
+      line-height: 1.55;
+      color: #52523f;
+      margin: 0;
+    }
+
+    /* ---------- Reviews ---------- */
+    .reviews {
+      background: var(--paper);
+    }
+
+    .stars-row {
+      display: flex;
+      gap: 3px;
+      margin-top: 14px;
+    }
+
+    .stars-row svg {
+      width: 18px;
+      height: 18px;
+      color: var(--coral);
+    }
+
+    .live-reviews {
+      margin-bottom: 46px;
+    }
+
+    .see-all-reviews {
+      display: inline-flex;
+      margin-top: 20px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+      color: var(--petrol);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .see-all-reviews:hover {
+      color: var(--coral-dark);
+    }
+
+    .live-reviews-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8a8a7e;
+      margin-bottom: 16px;
+    }
+
+    .live-reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width:880px) {
+      .live-reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width:600px) {
+      .live-reviews-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .review-card {
+      background: var(--sand);
+      border-radius: var(--radius);
+      padding: 22px;
+      border: 1px solid var(--line);
+    }
+
+    .review-card .stars-row svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .review-card p {
+      font-size: 0.93rem;
+      line-height: 1.55;
+      color: #3c3c33;
+      margin: 10px 0 12px;
+    }
+
+    .review-card .who {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.74rem;
+      color: #8a8a7e;
+    }
+
+    .reviews-empty {
+      grid-column: 1 / -1;
+      font-size: 0.95rem;
+      color: #8a8a7e;
+      padding: 18px 0;
+    }
+
+    .form-status {
+      font-size: 0.88rem;
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 9px;
+      display: none;
+    }
+
+    .form-status.show {
+      display: block;
+    }
+
+    .form-status.ok {
+      background: rgba(27, 94, 99, 0.12);
+      color: var(--petrol);
+    }
+
+    .form-status.err {
+      background: rgba(232, 93, 61, 0.12);
+      color: var(--coral-dark);
+    }
+
+    .review-form-wrap {
+      background: var(--sand);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+
+    .review-form-wrap h3 {
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+
+    .review-form-wrap>p {
+      margin: 0 0 22px;
+      font-size: 0.92rem;
+      color: #52523f;
+      line-height: 1.55;
+    }
+
+    /* ---------- Forms (shared) ---------- */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width:640px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    label .opt {
+      font-weight: 400;
+      color: #8a8a7e;
+      font-size: 0.76rem;
+    }
+
+    input,
+    textarea,
+    select {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.96rem;
+      padding: 12px 14px;
+      border-radius: 9px;
+      border: 1.5px solid var(--line);
+      background: var(--paper);
+      color: var(--charcoal);
+      width: 100%;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--petrol);
+      box-shadow: 0 0 0 3px rgba(27, 94, 99, 0.15);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .star-picker {
+      display: flex;
+      gap: 6px;
+    }
+
+    .star-picker button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 2px;
+    }
+
+    .star-picker svg {
+      width: 26px;
+      height: 26px;
+      color: #cfc8b2;
+      transition: color .12s ease;
+    }
+
+    .star-picker button.active svg,
+    .star-picker button:hover svg {
+      color: var(--coral);
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: #8a8a7e;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    /* ---------- Booking ---------- */
+    .book {
+      background: var(--sand);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.78fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @media (max-width:880px) {
+      .book-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .book-cta-card {
+      background: var(--paper);
+      border-radius: var(--radius);
+      padding: 34px;
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .book-cta-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--whatsapp), #1fb858);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .book-cta-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .book-cta-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .book-cta-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #52523f;
+      margin: 0 0 22px;
+    }
+
+    .book-side {
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+
+    .book-side h3 {
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+    }
+
+    .book-side ul {
+      padding-left: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .book-side li {
+      display: flex;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(251, 247, 238, 0.14);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: rgba(251, 247, 238, 0.85);
+    }
+
+    .book-side li:last-child {
+      border-bottom: none;
+    }
+
+    .book-side li svg {
+      width: 18px;
+      height: 18px;
+      flex: none;
+      margin-top: 2px;
+      color: var(--coral);
+    }
+
+    /* ---------- Booking modal ---------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(11, 46, 51, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .2s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: var(--paper);
+      border-radius: var(--radius);
+      padding: 34px;
+      width: 100%;
+      max-width: 560px;
+      max-height: 88vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+      transform: translateY(14px);
+      transition: transform .2s ease;
+    }
+
+    .modal-overlay.open .modal-card {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      color: var(--charcoal);
+    }
+
+    .modal-close svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .modal-card h3 {
+      font-size: 1.35rem;
+      margin: 0 0 6px;
+      padding-right: 28px;
+    }
+
+    .modal-card .modal-sub {
+      font-size: 0.92rem;
+      color: #52523f;
+      margin: 0 0 22px;
+      line-height: 1.5;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* ---------- Contact / Footer ---------- */
+    footer {
+      background: var(--ink);
+      color: rgba(251, 247, 238, 0.85);
+      padding-top: 70px;
+    }
+
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid rgba(251, 247, 238, 0.14);
+    }
+
+    @media (max-width:760px) {
+      .foot-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    footer h4 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 16px;
+    }
+
+    footer .brand {
+      margin-bottom: 14px;
+    }
+
+    footer p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin: 0 0 10px;
+      color: rgba(251, 247, 238, 0.72);
+    }
+
+    footer a.contact-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: rgba(251, 247, 238, 0.85);
+      font-size: 0.92rem;
+      margin-bottom: 12px;
+    }
+
+    footer a.contact-link svg {
+      width: 17px;
+      height: 17px;
+      color: var(--coral);
+      flex: none;
+    }
+
+    .foot-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 22px 0;
+      font-size: 0.78rem;
+      color: rgba(251, 247, 238, 0.5);
+    }
+
+    /* ---------- Floating WhatsApp ---------- */
+    .float-wa {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 90;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--whatsapp);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+      text-decoration: none;
+      transition: transform .15s ease;
+    }
+
+    .float-wa:hover {
+      transform: scale(1.06);
+    }
+
+    .float-wa svg {
+      width: 28px;
+      height: 28px;
+      color: #fff;
+    }
+
+    /* ---------- Reveal on scroll ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header id="site-header">
-  <div class="wrap">
-    <a href="#home" class="brand"><span class="dot"></span>Jehova Transportation</a>
-    <nav class="links">
-      <a href="#services">Services</a>
-      <a href="#fares">Fares</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#book">Book a ride</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-  </div>
-</header>
-
-<div class="mobile-panel" id="mobilePanel">
-  <button class="close-panel" id="closePanel" aria-label="Close menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
-  </button>
-  <a href="#services">Services</a>
-  <a href="#fares">Fares</a>
-  <a href="#reviews">Reviews</a>
-  <a href="#book">Book a ride</a>
-  <a href="#contact">Contact</a>
-</div>
-
-<section class="hero" id="home">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Taxi &amp; tour service · St. Maarten / St. Martin</p>
-      <h1>Two sides of the island. <em>One driver</em> you can count on.</h1>
-      <p class="lead">Jehova Transportation gets you where you're going — airport transfers, cruise port pickups, hotel runs, and island tours, on the Dutch and French sides alike.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="https://wa.me/17215501890?text=Hi%2C%20I%27d%20like%20to%20request%20a%20taxi." target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.2-.5-2.4-1.6-3.1-2.8-.1-.2-.1-.4.1-.5l.6-.7c.1-.2.1-.4 0-.5l-.6-1.5c-.1-.3-.4-.3-.6-.3h-.5c-.2 0-.5.1-.6.3-.2.3-.7 1-.7 2.1 0 1.6 1.2 3.2 1.4 3.4.2.2 1.9 2.9 4.7 3.9 2.3.8 2.3.5 2.7.5.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.2-.2-.4-.2z"/></svg>
-          Message us on WhatsApp
-        </a>
-        <a class="btn btn-outline" href="#book">Request a pickup</a>
-      </div>
+  <header id="site-header">
+    <div class="wrap">
+      <a href="#home" class="brand"><span class="dot"></span>Jehova Transportation</a>
+      <nav class="links">
+        <a href="#services">Services</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#book" class="open-booking">Book a ride</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 6h18M3 12h18M3 18h18" />
+        </svg>
+      </button>
     </div>
-    <div class="route-card">
-      <p class="route-label">Today's route ──</p>
-      <svg class="route-svg" viewBox="0 0 460 130" fill="none">
-        <path d="M10,60 C 80,10 160,110 230,55 C 300,0 360,90 430,40" stroke="rgba(251,247,238,0.35)" stroke-width="2" stroke-dasharray="6 8"/>
-        <circle cx="10" cy="60" r="6" fill="#FF6B4A"/>
-        <circle cx="430" cy="40" r="6" fill="#7FE0D3"/>
-        <circle id="car-dot" cx="0" cy="0" r="6" fill="#FFFCF5"/>
+  </header>
+
+  <div class="mobile-panel" id="mobilePanel">
+    <button class="close-panel" id="closePanel" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 6l12 12M18 6L6 18" />
       </svg>
-      <div class="route-stops"><span>SXM AIRPORT</span><span>YOUR DESTINATION</span></div>
-    </div>
+    </button>
+    <a href="#services">Services</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#book" class="open-booking">Book a ride</a>
+    <a href="#contact">Contact</a>
   </div>
-  <div class="wave-divider" style="bottom:-1px;">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,40 C 240,90 480,0 720,30 C 960,60 1200,10 1440,45 L1440,80 L0,80 Z" fill="var(--sand)"/>
-    </svg>
-  </div>
-</section>
 
-<section class="services" id="services">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">What we drive</p>
-      <h2>Built for visitors, used by locals.</h2>
-      <p>Whether you just landed or you're island-hopping for the day, here's what we cover most.</p>
-    </div>
-    <div class="service-grid">
-      <div class="service-card reveal">
-        <div class="icon icon-lagoon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.5 21h3M12 3v6m0 0L4 13.5V16l8-2.5 8 2.5v-2.5L12 9z"/></svg></div>
-        <h3>Airport transfers</h3>
-        <p>Pickups and drop-offs at Princess Juliana International, timed to your flight.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="icon icon-coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17h18l-2-7H5l-2 7zm2 0v2a1 1 0 001 1h12a1 1 0 001-1v-2M7 10V6h10v4"/></svg></div>
-        <h3>Cruise port pickups</h3>
-        <p>Meet you at the dock in Philipsburg and get you back in time for departure.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="icon icon-palm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l6-6m0 0l5-9 7 7-9 5-3 3zm6-6l3-3"/></svg></div>
-        <h3>Island tours</h3>
-        <p>A guided loop of both the Dutch and French sides — beaches, lookouts, and lunch stops.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="icon icon-lagoon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div>
-        <h3>Beach days</h3>
-        <p>Drop at Orient Bay, Maho, or Grand Case in the morning, pickup whenever you're ready.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="icon icon-coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></div>
-        <h3>Late-night rides</h3>
-        <p>Heading out for dinner or a night in Simpson Bay? We'll get you home safe after.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="icon icon-palm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 4l9 5.5M5 10v9h14v-9M9 19v-5h6v5"/></svg></div>
-        <h3>Hotel &amp; villa pickups</h3>
-        <p>Door-to-door service anywhere on the island, scheduled to your itinerary.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="fares" id="fares">
-  <div class="wave-divider" style="top:-1px; transform:rotate(180deg);">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,40 C 240,90 480,0 720,30 C 960,60 1200,10 1440,45 L1440,80 L0,80 Z" fill="var(--sand)"/>
-    </svg>
-  </div>
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">How fares work here</p>
-      <h2>No meters on this island — fares are fixed.</h2>
-      <p>St. Maarten / St. Martin taxis run on government-set fixed rates rather than meters. Message us your route and we'll confirm your exact fare before you get in.</p>
-    </div>
-    <div class="card-stage reveal">
-      <div class="permit">
-        <div class="stamp">FIXED<br>RATE</div>
-        <p class="permit-eyebrow">Jehova Transportation</p>
-        <h3>Popular routes from SXM Airport</h3>
-        <div class="permit-row"><span class="route">→ Philipsburg</span><span class="ask">ask for rate</span></div>
-        <div class="permit-row"><span class="route">→ Marigot</span><span class="ask">ask for rate</span></div>
-        <div class="permit-row"><span class="route">→ Orient Bay</span><span class="ask">ask for rate</span></div>
-        <div class="permit-row"><span class="route">→ Grand Case</span><span class="ask">ask for rate</span></div>
-        <div class="permit-row"><span class="route">→ Maho / Simpson Bay</span><span class="ask">ask for rate</span></div>
-        <p class="permit-foot">Rates are fixed by route, not metered, and can vary with passenger count and luggage. Send us your pickup and destination on WhatsApp for today's confirmed price.</p>
-      </div>
-    </div>
-  </div>
-  <div class="wave-divider" style="bottom:-1px;">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,40 C 240,90 480,0 720,30 C 960,60 1200,10 1440,45 L1440,80 L0,80 Z" fill="var(--paper)"/>
-    </svg>
-  </div>
-</section>
-
-<section class="reviews" id="reviews">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">What riders say</p>
-      <h2>Word of mouth still goes a long way here.</h2>
-      <p>Reviews submitted below are added straight to our review board — no third-party site required.</p>
-    </div>
-
-    <div id="liveReviews" class="live-reviews reveal">
-      <p class="live-reviews-label">Recent reviews</p>
-      <div class="live-reviews-grid" id="liveReviewsGrid">
-        <p class="reviews-empty" id="reviewsEmpty">Be the first to leave a review below.</p>
-      </div>
-    </div>
-
-    <div class="review-form-wrap reveal">
-      <h3>Leave a review</h3>
-      <p id="reviewFormCopy">Tell us about your ride — your review will appear above once we've approved it.</p>
-      <form id="reviewForm">
-        <div class="field full">
-          <label for="rName">Your name</label>
-          <input type="text" id="rName" required placeholder="Jane Smith">
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Taxi &amp; tour service · St. Maarten / St. Martin</p>
+        <h1>Two sides of the island. <em>One driver</em> you can count on.</h1>
+        <p class="lead">Jehova Transportation gets you where you're going — airport transfers, cruise port pickups,
+          hotel runs, and island tours, on the Dutch and French sides alike.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary"
+            href="https://wa.me/17215501890?text=Hi%2C%20I%27d%20like%20to%20request%20a%20taxi." target="_blank"
+            rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.2-.5-2.4-1.6-3.1-2.8-.1-.2-.1-.4.1-.5l.6-.7c.1-.2.1-.4 0-.5l-.6-1.5c-.1-.3-.4-.3-.6-.3h-.5c-.2 0-.5.1-.6.3-.2.3-.7 1-.7 2.1 0 1.6 1.2 3.2 1.4 3.4.2.2 1.9 2.9 4.7 3.9 2.3.8 2.3.5 2.7.5.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.2-.2-.4-.2z" />
+            </svg>
+            Message us on WhatsApp
+          </a>
+          <a class="btn btn-outline open-booking" href="#book">Request a pickup</a>
         </div>
-        <div class="field full">
-          <label>Rating</label>
-          <div class="star-picker" id="starPicker">
-            <button type="button" data-val="1" aria-label="1 star"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 14.9 4.4 18.1l1.4-6.3L1 7.5l6.4-.6z"/></svg></button>
-            <button type="button" data-val="2" aria-label="2 stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 14.9 4.4 18.1l1.4-6.3L1 7.5l6.4-.6z"/></svg></button>
-            <button type="button" data-val="3" aria-label="3 stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 14.9 4.4 18.1l1.4-6.3L1 7.5l6.4-.6z"/></svg></button>
-            <button type="button" data-val="4" aria-label="4 stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 14.9 4.4 18.1l1.4-6.3L1 7.5l6.4-.6z"/></svg></button>
-            <button type="button" data-val="5" aria-label="5 stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 14.9 4.4 18.1l1.4-6.3L1 7.5l6.4-.6z"/></svg></button>
+      </div>
+      <div class="route-card">
+        <p class="route-label">Today's route ──</p>
+        <svg class="route-svg" viewBox="0 0 460 130" fill="none">
+          <path d="M10,60 C 80,10 160,110 230,55 C 300,0 360,90 430,40" stroke="rgba(251,247,238,0.35)" stroke-width="2"
+            stroke-dasharray="6 8" />
+          <circle cx="10" cy="60" r="6" fill="#FF6B4A" />
+          <circle cx="430" cy="40" r="6" fill="#7FE0D3" />
+          <circle id="car-dot" cx="0" cy="0" r="6" fill="#FFFCF5" />
+        </svg>
+        <div class="route-stops"><span>SXM AIRPORT</span><span>YOUR DESTINATION</span></div>
+      </div>
+    </div>
+    <div class="wave-divider" style="bottom:-1px;">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C 240,90 480,0 720,30 C 960,60 1200,10 1440,45 L1440,80 L0,80 Z" fill="var(--sand)" />
+      </svg>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">What we drive</p>
+        <h2>Built for visitors, used by locals.</h2>
+        <p>Whether you just landed or you're island-hopping for the day, here's what we cover most.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card reveal">
+          <div class="icon icon-lagoon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M10.5 21h3M12 3v6m0 0L4 13.5V16l8-2.5 8 2.5v-2.5L12 9z" />
+            </svg></div>
+          <h3>Airport transfers</h3>
+          <p>Pickups and drop-offs at Princess Juliana International, timed to your flight.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon icon-coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M3 17h18l-2-7H5l-2 7zm2 0v2a1 1 0 001 1h12a1 1 0 001-1v-2M7 10V6h10v4" />
+            </svg></div>
+          <h3>Cruise port pickups</h3>
+          <p>Meet you at the dock in Philipsburg and get you back in time for departure.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon icon-palm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M3 21l6-6m0 0l5-9 7 7-9 5-3 3zm6-6l3-3" />
+            </svg></div>
+          <h3>Island tours</h3>
+          <p>A guided loop of both the Dutch and French sides — beaches, lookouts, and lunch stops.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon icon-lagoon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+            </svg></div>
+          <h3>Beach days</h3>
+          <p>Drop at Orient Bay, Maho, or Grand Case in the morning, pickup whenever you're ready.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon icon-coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z" />
+            </svg></div>
+          <h3>Late-night rides</h3>
+          <p>Heading out for dinner or a night in Simpson Bay? We'll get you home safe after.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon icon-palm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M3 9.5L12 4l9 5.5M5 10v9h14v-9M9 19v-5h6v5" />
+            </svg></div>
+          <h3>Hotel &amp; villa pickups</h3>
+          <p>Door-to-door service anywhere on the island, scheduled to your itinerary.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Request a ride</p>
+        <h2>Tell us where, and we'll be there.</h2>
+        <p>Tap below, fill in your trip details, and we'll open WhatsApp with everything pre-filled — just hit send to
+          reach us directly.</p>
+      </div>
+      <div class="book-grid">
+        <div class="book-cta-card reveal">
+          <div class="book-cta-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+            </svg>
           </div>
-          <input type="hidden" id="rRating" value="5">
+          <h3>Ready when you are</h3>
+          <p>Takes under a minute — name, pickup, drop-off, date and time. It's sent from your own WhatsApp, so we'll
+            already have your number.</p>
+          <button type="button" class="btn btn-primary open-booking">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.2-.5-2.4-1.6-3.1-2.8-.1-.2-.1-.4.1-.5l.6-.7c.1-.2.1-.4 0-.5l-.6-1.5c-.1-.3-.4-.3-.6-.3h-.5c-.2 0-.5.1-.6.3-.2.3-.7 1-.7 2.1 0 1.6 1.2 3.2 1.4 3.4.2.2 1.9 2.9 4.7 3.9 2.3.8 2.3.5 2.7.5.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.2-.2-.4-.2z" />
+            </svg>
+            Request a pickup
+          </button>
         </div>
-        <div class="field full">
-          <label for="rComment">Your review</label>
-          <textarea id="rComment" required placeholder="Tell future riders about your experience..."></textarea>
+        <div class="book-side reveal">
+          <h3>Good to know</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 3" />
+              </svg>Book ahead for early flights or late-night pickups — availability fills up fast.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 16V7a2 2 0 00-2-2H5a2 2 0 00-2 2v9m18 0H3m18 0l-1.5 3h-15L3 16" />
+              </svg>We cover both the Dutch and French sides — no need to switch drivers at the border.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M3 21l6-6m0 0l5-9 7 7-9 5-3 3zm6-6l3-3" />
+              </svg>Ask about a custom island tour when you message us — half-day and full-day options available.</li>
+          </ul>
         </div>
-        <button type="submit" class="btn btn-coral" id="reviewSubmitBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          Submit review
-        </button>
-        <p class="form-note" id="reviewFormNote">Reviews are checked before they go live, so it may take a little while to appear.</p>
-        <p class="form-status" id="reviewStatus"></p>
-      </form>
+      </div>
     </div>
-  </div>
-</section>
+    <div class="wave-divider" style="bottom:-1px;">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C 240,90 480,0 720,30 C 960,60 1200,10 1440,45 L1440,80 L0,80 Z" fill="var(--paper)" />
+      </svg>
+    </div>
+  </section>
 
-<section class="book" id="book">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Request a ride</p>
-      <h2>Tell us where, and we'll be there.</h2>
-      <p>Fill in your trip details below. When you submit, we'll open WhatsApp with everything filled in — just hit send to reach us directly.</p>
+  <section class="reviews" id="reviews">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">What riders say</p>
+        <h2>Word of mouth still goes a long way here.</h2>
+        <p>Reviews submitted below are added straight to our review board — no third-party site required.</p>
+      </div>
+
+      <div id="liveReviews" class="live-reviews reveal">
+        <p class="live-reviews-label">Recent reviews</p>
+        <div class="live-reviews-grid" id="liveReviewsGrid">
+          <p class="reviews-empty" id="reviewsEmpty">Be the first to leave a review below.</p>
+        </div>
+        <a href="reviews.html" class="see-all-reviews">See all reviews →</a>
+      </div>
+
+      <div class="review-form-wrap reveal">
+        <h3>Leave a review</h3>
+        <p id="reviewFormCopy">Tell us about your ride — your review will appear above once we've approved it.</p>
+        <form id="reviewForm">
+          <div class="field full">
+            <label for="rName">Your name</label>
+            <input type="text" id="rName" required placeholder="Jane Smith">
+          </div>
+          <div class="field full">
+            <label>Rating</label>
+            <div class="star-picker" id="starPicker">
+              <button type="button" data-val="1" aria-label="1 star"><svg viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 14.9 4.4 18.1l1.4-6.3L1 7.5l6.4-.6z" />
+                </svg></button>
+              <button type="button" data-val="2" aria-label="2 stars"><svg viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 14.9 4.4 18.1l1.4-6.3L1 7.5l6.4-.6z" />
+                </svg></button>
+              <button type="button" data-val="3" aria-label="3 stars"><svg viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 14.9 4.4 18.1l1.4-6.3L1 7.5l6.4-.6z" />
+                </svg></button>
+              <button type="button" data-val="4" aria-label="4 stars"><svg viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 14.9 4.4 18.1l1.4-6.3L1 7.5l6.4-.6z" />
+                </svg></button>
+              <button type="button" data-val="5" aria-label="5 stars"><svg viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 14.9 4.4 18.1l1.4-6.3L1 7.5l6.4-.6z" />
+                </svg></button>
+            </div>
+            <input type="hidden" id="rRating" value="5">
+          </div>
+          <div class="field full">
+            <label for="rComment">Your review</label>
+            <textarea id="rComment" required placeholder="Tell future riders about your experience..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-coral" id="reviewSubmitBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+            Submit review
+          </button>
+          <p class="form-note" id="reviewFormNote">Reviews are checked before they go live, so it may take a little
+            while to appear.</p>
+          <p class="form-status" id="reviewStatus"></p>
+        </form>
+      </div>
     </div>
-    <div class="book-grid">
-      <form class="book-form-card reveal" id="bookingForm">
+    <div class="wave-divider" style="bottom:-1px;">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C 240,90 480,0 720,30 C 960,60 1200,10 1440,45 L1440,80 L0,80 Z" fill="var(--ink)" />
+      </svg>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a href="#home" class="brand"><span class="dot"></span>Jehova Transportation</a>
+          <p>Taxi and tour service covering both Dutch Sint Maarten and French Saint-Martin — airport, cruise port,
+            hotels, and villas, islandwide.</p>
+        </div>
+        <div>
+          <h4>Reach us</h4>
+          <a class="contact-link" href="tel:+17215501890"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8">
+              <path
+                d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L8 9.7a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z" />
+            </svg>+1 (721) 550-1890</a>
+          <a class="contact-link" href="https://wa.me/17215501890" target="_blank" rel="noopener"><svg
+              viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.2-.5-2.4-1.6-3.1-2.8-.1-.2-.1-.4.1-.5l.6-.7c.1-.2.1-.4 0-.5l-.6-1.5c-.1-.3-.4-.3-.6-.3h-.5c-.2 0-.5.1-.6.3-.2.3-.7 1-.7 2.1 0 1.6 1.2 3.2 1.4 3.4.2.2 1.9 2.9 4.7 3.9 2.3.8 2.3.5 2.7.5.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.2-.2-.4-.2z" />
+            </svg>WhatsApp chat</a>
+          <a class="contact-link" href="mailto:Jehovatransportation@gmail.com"><svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8">
+              <path d="M4 4h16v16H4z" />
+              <path d="M4 4l8 9 8-9" />
+            </svg>Jehovatransportation@gmail.com</a>
+        </div>
+        <div>
+          <h4>Find us</h4>
+          <a class="contact-link" href="https://www.facebook.com/people/Jehova-Transportation/100084139773937/"
+            target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+            </svg>Facebook page</a>
+          <p>Available daily — message us anytime to check current availability.</p>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span id="year"></span> Jehova Transportation</span>
+        <span>St. Maarten / St. Martin</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="float-wa" href="https://wa.me/17215501890?text=Hi%2C%20I%27d%20like%20to%20request%20a%20taxi."
+    target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.2-.5-2.4-1.6-3.1-2.8-.1-.2-.1-.4.1-.5l.6-.7c.1-.2.1-.4 0-.5l-.6-1.5c-.1-.3-.4-.3-.6-.3h-.5c-.2 0-.5.1-.6.3-.2.3-.7 1-.7 2.1 0 1.6 1.2 3.2 1.4 3.4.2.2 1.9 2.9 4.7 3.9 2.3.8 2.3.5 2.7.5.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.2-.2-.4-.2z" />
+    </svg>
+  </a>
+
+  <div class="modal-overlay" id="bookingModalOverlay">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+      <button type="button" class="modal-close" id="bookingModalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <h3 id="bookingModalTitle">Request a pickup</h3>
+      <p class="modal-sub">Fill in your trip details — we'll open WhatsApp with everything pre-filled, sent from your
+        own account.</p>
+      <form id="bookingForm">
         <div class="form-grid">
           <div class="field">
             <label for="bName">Full name</label>
             <input type="text" id="bName" required placeholder="Jane Smith">
-          </div>
-          <div class="field">
-            <label for="bPhone">Phone number</label>
-            <input type="tel" id="bPhone" required placeholder="+1 721 000 0000">
           </div>
           <div class="field">
             <label for="bPickup">Pickup location</label>
@@ -559,7 +1343,7 @@
             <label for="bPax">Passengers</label>
             <input type="number" id="bPax" min="1" max="20" value="1" required>
           </div>
-          <div class="field">
+          <div class="field full">
             <label for="bFlight">Flight / cruise ship # <span class="opt">(optional)</span></label>
             <input type="text" id="bFlight" placeholder="e.g. DL 123">
           </div>
@@ -568,58 +1352,18 @@
             <textarea id="bNotes" placeholder="Luggage, car seat, anything we should know..."></textarea>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.2-.5-2.4-1.6-3.1-2.8-.1-.2-.1-.4.1-.5l.6-.7c.1-.2.1-.4 0-.5l-.6-1.5c-.1-.3-.4-.3-.6-.3h-.5c-.2 0-.5.1-.6.3-.2.3-.7 1-.7 2.1 0 1.6 1.2 3.2 1.4 3.4.2.2 1.9 2.9 4.7 3.9 2.3.8 2.3.5 2.7.5.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.2-.2-.4-.2z"/></svg>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.2-.5-2.4-1.6-3.1-2.8-.1-.2-.1-.4.1-.5l.6-.7c.1-.2.1-.4 0-.5l-.6-1.5c-.1-.3-.4-.3-.6-.3h-.5c-.2 0-.5.1-.6.3-.2.3-.7 1-.7 2.1 0 1.6 1.2 3.2 1.4 3.4.2.2 1.9 2.9 4.7 3.9 2.3.8 2.3.5 2.7.5.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.2-.2-.4-.2z" />
+          </svg>
           Send request via WhatsApp
         </button>
-        <p class="form-note">Required fields are marked by the form. We typically reply within minutes during the day.</p>
+        <p class="form-note">Sent from your own WhatsApp, so we'll already have your number — no need to type it here.
+          We typically reply within minutes during the day.</p>
       </form>
-      <div class="book-side reveal">
-        <h3>Good to know</h3>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Book ahead for early flights or late-night pickups — availability fills up fast.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V7a2 2 0 00-2-2H5a2 2 0 00-2 2v9m18 0H3m18 0l-1.5 3h-15L3 16"/></svg>We cover both the Dutch and French sides — no need to switch drivers at the border.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l6-6m0 0l5-9 7 7-9 5-3 3zm6-6l3-3"/></svg>Ask about a custom island tour when you message us — half-day and full-day options available.</li>
-        </ul>
-      </div>
     </div>
   </div>
-  <div class="wave-divider" style="bottom:-1px;">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,40 C 240,90 480,0 720,30 C 960,60 1200,10 1440,45 L1440,80 L0,80 Z" fill="var(--ink)"/>
-    </svg>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a href="#home" class="brand"><span class="dot"></span>Jehova Transportation</a>
-        <p>Taxi and tour service covering both Dutch Sint Maarten and French Saint-Martin — airport, cruise port, hotels, and villas, islandwide.</p>
-      </div>
-      <div>
-        <h4>Reach us</h4>
-        <a class="contact-link" href="tel:+17215501890"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L8 9.7a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z"/></svg>+1 (721) 550-1890</a>
-        <a class="contact-link" href="https://wa.me/17215501890" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.2-.5-2.4-1.6-3.1-2.8-.1-.2-.1-.4.1-.5l.6-.7c.1-.2.1-.4 0-.5l-.6-1.5c-.1-.3-.4-.3-.6-.3h-.5c-.2 0-.5.1-.6.3-.2.3-.7 1-.7 2.1 0 1.6 1.2 3.2 1.4 3.4.2.2 1.9 2.9 4.7 3.9 2.3.8 2.3.5 2.7.5.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.2-.2-.4-.2z"/></svg>WhatsApp chat</a>
-        <a class="contact-link" href="mailto:Jehovatransportation@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 4l8 9 8-9"/></svg>Jehovatransportation@gmail.com</a>
-      </div>
-      <div>
-        <h4>Find us</h4>
-        <a class="contact-link" href="https://www.facebook.com/people/Jehova-Transportation/100084139773937/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook page</a>
-        <p>Available daily — message us anytime to check current availability.</p>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© <span id="year"></span> Jehova Transportation</span>
-      <span>St. Maarten / St. Martin</span>
-    </div>
-  </div>
-</footer>
-
-<a class="float-wa" href="https://wa.me/17215501890?text=Hi%2C%20I%27d%20like%20to%20request%20a%20taxi." target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.2-.5-2.4-1.6-3.1-2.8-.1-.2-.1-.4.1-.5l.6-.7c.1-.2.1-.4 0-.5l-.6-1.5c-.1-.3-.4-.3-.6-.3h-.5c-.2 0-.5.1-.6.3-.2.3-.7 1-.7 2.1 0 1.6 1.2 3.2 1.4 3.4.2.2 1.9 2.9 4.7 3.9 2.3.8 2.3.5 2.7.5.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.2-.2-.4-.2z"/></svg>
-</a>
 
   <!--
     ============================================================
@@ -630,204 +1374,233 @@
     just skips the database and relies on WhatsApp only.
     ============================================================
   -->
-<script>
-  window.FIREBASE_CONFIG = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
-</script>
+  <script>
+    window.FIREBASE_CONFIG = {
+      apiKey: "AIzaSyCiVsprrYJXAzPckSV0ZA4aIqp1TXHZWHk",
+      authDomain: "jehova-transportation.firebaseapp.com",
+      projectId: "jehova-transportation",
+      storageBucket: "jehova-transportation.firebasestorage.app",
+      messagingSenderId: "753397196748",
+      appId: "1:753397196748:web:b118383b2c2a211ce9df69",
+      measurementId: "G-HLYT0KW5M4"
+    };
+  </script>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-  import {
-    getFirestore, collection, addDoc, getDocs, query, where,
-    orderBy, limit, serverTimestamp
-  } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+    import {
+      getFirestore, collection, addDoc, getDocs, query, where,
+      orderBy, limit, serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
-  const WA_NUMBER = "17215501890";
-  const cfg = window.FIREBASE_CONFIG;
-  const FIREBASE_ENABLED = !!cfg && cfg.apiKey && cfg.apiKey !== "YOUR_API_KEY";
+    const WA_NUMBER = "17215501890";
+    const cfg = window.FIREBASE_CONFIG;
+    const FIREBASE_ENABLED = !!cfg && cfg.apiKey && cfg.apiKey !== "YOUR_API_KEY";
 
-  let db = null;
-  if (FIREBASE_ENABLED) {
-    try {
-      const app = initializeApp(cfg);
-      db = getFirestore(app);
-    } catch (err) {
-      console.error("Firebase failed to initialize — falling back to WhatsApp-only mode.", err);
+    let db = null;
+    if (FIREBASE_ENABLED) {
+      try {
+        const app = initializeApp(cfg);
+        db = getFirestore(app);
+      } catch (err) {
+        console.error("Firebase failed to initialize — falling back to WhatsApp-only mode.", err);
+      }
     }
-  }
 
-  // ---------- Header scroll state ----------
-  const header = document.getElementById('site-header');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 30);
-  });
-
-  // ---------- Mobile nav ----------
-  const panel = document.getElementById('mobilePanel');
-  document.getElementById('navToggle').addEventListener('click', () => panel.classList.add('open'));
-  document.getElementById('closePanel').addEventListener('click', () => panel.classList.remove('open'));
-  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => panel.classList.remove('open')));
-
-  // ---------- Reveal on scroll ----------
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // ---------- Star picker ----------
-  const starPicker = document.getElementById('starPicker');
-  const ratingInput = document.getElementById('rRating');
-  function setStars(val){
-    starPicker.querySelectorAll('button').forEach(btn => {
-      btn.classList.toggle('active', Number(btn.dataset.val) <= val);
+    // ---------- Header scroll state ----------
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 30);
     });
-    ratingInput.value = val;
-  }
-  setStars(5);
-  starPicker.querySelectorAll('button').forEach(btn => {
-    btn.addEventListener('click', () => setStars(Number(btn.dataset.val)));
-  });
 
-  // ---------- Render a single review card ----------
-  function starsMarkup(rating){
-    const r = Number(rating) || 5;
-    let html = '<div class="stars-row">';
-    for (let i = 1; i <= 5; i++){
-      html += `<svg viewBox="0 0 20 20" fill="currentColor" style="color:${i <= r ? '#FF6B4A' : '#cfc8b2'}"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 14.9 4.4 18.1l1.4-6.3L1 7.5l6.4-.6z"/></svg>`;
-    }
-    return html + '</div>';
-  }
-  function escapeHtml(str){
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-  }
+    // ---------- Mobile nav ----------
+    const panel = document.getElementById('mobilePanel');
+    document.getElementById('navToggle').addEventListener('click', () => panel.classList.add('open'));
+    document.getElementById('closePanel').addEventListener('click', () => panel.classList.remove('open'));
+    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => panel.classList.remove('open')));
 
-  // ---------- Load approved reviews from Firestore ----------
-  async function loadReviews(){
-    const grid = document.getElementById('liveReviewsGrid');
-    if (!FIREBASE_ENABLED || !db) {
-      grid.innerHTML = '<p class="reviews-empty">Reviews aren\'t connected yet — see README.md to set up the free Firebase database.</p>';
-      return;
+    // ---------- Booking modal ----------
+    const bookingOverlay = document.getElementById('bookingModalOverlay');
+    function openBookingModal() {
+      bookingOverlay.classList.add('open');
+      document.body.classList.add('modal-open');
     }
-    try {
-      const q = query(
-        collection(db, 'reviews'),
-        where('approved', '==', true),
-        orderBy('createdAt', 'desc'),
-        limit(24)
-      );
-      const snap = await getDocs(q);
-      if (snap.empty) {
-        grid.innerHTML = '<p class="reviews-empty">Be the first to leave a review below.</p>';
+    function closeBookingModal() {
+      bookingOverlay.classList.remove('open');
+      document.body.classList.remove('modal-open');
+    }
+    document.querySelectorAll('.open-booking').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        panel.classList.remove('open');
+        openBookingModal();
+      });
+    });
+    document.getElementById('bookingModalClose').addEventListener('click', closeBookingModal);
+    bookingOverlay.addEventListener('click', (e) => {
+      if (e.target === bookingOverlay) closeBookingModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && bookingOverlay.classList.contains('open')) closeBookingModal();
+    });
+
+    // ---------- Reveal on scroll ----------
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ---------- Star picker ----------
+    const starPicker = document.getElementById('starPicker');
+    const ratingInput = document.getElementById('rRating');
+    function setStars(val) {
+      starPicker.querySelectorAll('button').forEach(btn => {
+        btn.classList.toggle('active', Number(btn.dataset.val) <= val);
+      });
+      ratingInput.value = val;
+    }
+    setStars(5);
+    starPicker.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => setStars(Number(btn.dataset.val)));
+    });
+
+    // ---------- Render a single review card ----------
+    function starsMarkup(rating) {
+      const r = Number(rating) || 5;
+      let html = '<div class="stars-row">';
+      for (let i = 1; i <= 5; i++) {
+        html += `<svg viewBox="0 0 20 20" fill="currentColor" style="color:${i <= r ? '#FF6B4A' : '#cfc8b2'}"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 14.9 4.4 18.1l1.4-6.3L1 7.5l6.4-.6z"/></svg>`;
+      }
+      return html + '</div>';
+    }
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // ---------- Load approved reviews from Firestore ----------
+    async function loadReviews() {
+      const grid = document.getElementById('liveReviewsGrid');
+      if (!FIREBASE_ENABLED || !db) {
+        grid.innerHTML = '<p class="reviews-empty">Reviews aren\'t connected yet — see README.md to set up the free Firebase database.</p>';
         return;
       }
-      grid.innerHTML = '';
-      snap.forEach(doc => {
-        const r = doc.data();
-        const card = document.createElement('div');
-        card.className = 'review-card';
-        card.innerHTML = `
+      try {
+        const q = query(
+          collection(db, 'reviews'),
+          where('approved', '==', true),
+          orderBy('createdAt', 'desc'),
+          limit(6)
+        );
+        const snap = await getDocs(q);
+        if (snap.empty) {
+          grid.innerHTML = '<p class="reviews-empty">Be the first to leave a review below.</p>';
+          return;
+        }
+        grid.innerHTML = '';
+        snap.forEach(doc => {
+          const r = doc.data();
+          const card = document.createElement('div');
+          card.className = 'review-card';
+          card.innerHTML = `
           ${starsMarkup(r.rating)}
           <p>"${escapeHtml(r.comment || '')}"</p>
           <p class="who">— ${escapeHtml(r.name || 'Rider')}</p>
         `;
-        grid.appendChild(card);
-      });
-    } catch (err) {
-      console.error("Couldn't load reviews from Firestore:", err);
-      grid.innerHTML = '<p class="reviews-empty">Couldn\'t load reviews right now — please refresh in a moment.</p>';
-    }
-  }
-  loadReviews();
-
-  // ---------- Review form -> Firestore only (no WhatsApp) ----------
-  const reviewFormCopy = document.getElementById('reviewFormCopy');
-  const reviewFormNote = document.getElementById('reviewFormNote');
-  const reviewStatus = document.getElementById('reviewStatus');
-  const reviewSubmitBtn = document.getElementById('reviewSubmitBtn');
-
-  if (!FIREBASE_ENABLED) {
-    reviewFormCopy.textContent = "Reviews aren't connected to a database yet.";
-    reviewFormNote.textContent = "Once Firebase is set up (see README.md), reviews submitted here will be saved and shown above after approval.";
-  }
-
-  document.getElementById('reviewForm').addEventListener('submit', async function(e){
-    e.preventDefault();
-    if(!this.checkValidity()){ this.reportValidity(); return; }
-
-    reviewStatus.className = 'form-status';
-    reviewStatus.textContent = '';
-
-    if (!FIREBASE_ENABLED || !db) {
-      reviewStatus.textContent = "Reviews aren't connected to a database yet — see README.md to set this up.";
-      reviewStatus.classList.add('show', 'err');
-      return;
-    }
-
-    const name = document.getElementById('rName').value.trim();
-    const rating = Number(ratingInput.value);
-    const comment = document.getElementById('rComment').value.trim();
-
-    reviewSubmitBtn.disabled = true;
-    reviewSubmitBtn.style.opacity = '0.7';
-
-    try {
-      await addDoc(collection(db, 'reviews'), {
-        name, rating, comment,
-        approved: false,
-        createdAt: serverTimestamp()
-      });
-      reviewStatus.textContent = "Thanks! Your review has been submitted and will appear above once it's approved.";
-      reviewStatus.classList.add('show', 'ok');
-      this.reset();
-      setStars(5);
-    } catch (err) {
-      console.error("Couldn't save review to Firestore:", err);
-      reviewStatus.textContent = "Something went wrong submitting your review — please try again in a moment.";
-      reviewStatus.classList.add('show', 'err');
-    } finally {
-      reviewSubmitBtn.disabled = false;
-      reviewSubmitBtn.style.opacity = '1';
-    }
-  });
-
-  // ---------- Booking form -> Firestore (if configured) + WhatsApp ----------
-  document.getElementById('bookingForm').addEventListener('submit', async function(e){
-    e.preventDefault();
-    if(!this.checkValidity()){ this.reportValidity(); return; }
-    const v = id => document.getElementById(id).value.trim();
-    const name = v('bName'), phone = v('bPhone'), pickup = v('bPickup'), dropoff = v('bDropoff');
-    const date = v('bDate'), time = v('bTime'), pax = v('bPax'), flight = v('bFlight'), notes = v('bNotes');
-
-    if (FIREBASE_ENABLED && db) {
-      try {
-        await addDoc(collection(db, 'bookings'), {
-          name, phone, pickup, dropoff, date, time,
-          passengers: Number(pax) || 1,
-          flight: flight || null,
-          notes: notes || null,
-          createdAt: serverTimestamp()
+          grid.appendChild(card);
         });
       } catch (err) {
-        console.error("Couldn't save booking to Firestore:", err);
+        console.error("Couldn't load reviews from Firestore:", err);
+        grid.innerHTML = '<p class="reviews-empty">Couldn\'t load reviews right now — please refresh in a moment.</p>';
       }
     }
+    loadReviews();
 
-    let msg = `Taxi pickup request — Jehova Transportation\n\n`;
-    msg += `Name: ${name}\nPhone: ${phone}\nPickup: ${pickup}\nDrop-off: ${dropoff}\nDate: ${date}\nTime: ${time}\nPassengers: ${pax}\n`;
-    if(flight) msg += `Flight/cruise ship #: ${flight}\n`;
-    if(notes) msg += `Notes: ${notes}\n`;
-    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
-  });
+    // ---------- Review form -> Firestore only (no WhatsApp) ----------
+    const reviewFormCopy = document.getElementById('reviewFormCopy');
+    const reviewFormNote = document.getElementById('reviewFormNote');
+    const reviewStatus = document.getElementById('reviewStatus');
+    const reviewSubmitBtn = document.getElementById('reviewSubmitBtn');
 
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+    if (!FIREBASE_ENABLED) {
+      reviewFormCopy.textContent = "Reviews aren't connected to a database yet.";
+      reviewFormNote.textContent = "Once Firebase is set up (see README.md), reviews submitted here will be saved and shown above after approval.";
+    }
+
+    document.getElementById('reviewForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!this.checkValidity()) { this.reportValidity(); return; }
+
+      reviewStatus.className = 'form-status';
+      reviewStatus.textContent = '';
+
+      if (!FIREBASE_ENABLED || !db) {
+        reviewStatus.textContent = "Reviews aren't connected to a database yet — see README.md to set this up.";
+        reviewStatus.classList.add('show', 'err');
+        return;
+      }
+
+      const name = document.getElementById('rName').value.trim();
+      const rating = Number(ratingInput.value);
+      const comment = document.getElementById('rComment').value.trim();
+
+      reviewSubmitBtn.disabled = true;
+      reviewSubmitBtn.style.opacity = '0.7';
+
+      try {
+        await addDoc(collection(db, 'reviews'), {
+          name, rating, comment,
+          approved: false,
+          createdAt: serverTimestamp()
+        });
+        reviewStatus.textContent = "Thanks! Your review has been submitted and will appear above once it's approved.";
+        reviewStatus.classList.add('show', 'ok');
+        this.reset();
+        setStars(5);
+      } catch (err) {
+        console.error("Couldn't save review to Firestore:", err);
+        reviewStatus.textContent = "Something went wrong submitting your review — please try again in a moment.";
+        reviewStatus.classList.add('show', 'err');
+      } finally {
+        reviewSubmitBtn.disabled = false;
+        reviewSubmitBtn.style.opacity = '1';
+      }
+    });
+
+    // ---------- Booking form -> Firestore (if configured) + WhatsApp ----------
+    document.getElementById('bookingForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!this.checkValidity()) { this.reportValidity(); return; }
+      const v = id => document.getElementById(id).value.trim();
+      const name = v('bName'), pickup = v('bPickup'), dropoff = v('bDropoff');
+      const date = v('bDate'), time = v('bTime'), pax = v('bPax'), flight = v('bFlight'), notes = v('bNotes');
+
+      if (FIREBASE_ENABLED && db) {
+        try {
+          await addDoc(collection(db, 'bookings'), {
+            name, pickup, dropoff, date, time,
+            passengers: Number(pax) || 1,
+            flight: flight || null,
+            notes: notes || null,
+            createdAt: serverTimestamp()
+          });
+        } catch (err) {
+          console.error("Couldn't save booking to Firestore:", err);
+        }
+      }
+
+      let msg = `Taxi pickup request — Jehova Transportation\n\n`;
+      msg += `Name: ${name}\nPickup: ${pickup}\nDrop-off: ${dropoff}\nDate: ${date}\nTime: ${time}\nPassengers: ${pax}\n`;
+      if (flight) msg += `Flight/cruise ship #: ${flight}\n`;
+      if (notes) msg += `Notes: ${notes}\n`;
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+      this.reset();
+      closeBookingModal();
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
+
 </html>
