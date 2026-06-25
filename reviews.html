@@ -39,7 +39,7 @@
 
   header{
     background:linear-gradient(165deg, var(--ink) 0%, var(--ink2) 60%, var(--petrol) 100%);
-    color:var(--paper); padding:36px 0 70px;
+    color:var(--paper); padding:36px 0 0px;
   }
   header .top-row{display:flex; align-items:center; justify-content:space-between; margin-bottom:46px;}
   .brand{
@@ -57,7 +57,7 @@
   header p{font-size:1.02rem; line-height:1.6; opacity:0.85; max-width:540px; margin-top:14px;}
 
   main{padding:56px 0 90px;}
-  .reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;margin-bottom:10px;}
   @media (max-width:880px){ .reviews-grid{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:600px){ .reviews-grid{grid-template-columns:1fr;} }
 
@@ -83,6 +83,18 @@
   .btn:hover{background:var(--sand);}
   .btn:disabled{opacity:0.6; cursor:default;}
 
+  .wave-divider svg {
+    width: 100%;
+    height: 64px;
+    display: block;
+  }
+
+  @media (max-width:640px) {
+    .wave-divider svg {
+      height: 36px;
+    }
+  }
+
   footer{
     background:var(--ink); color:rgba(251,247,238,0.75); padding:34px 0; font-size:0.85rem;
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
@@ -104,6 +116,11 @@
     <p class="eyebrow">Rider reviews</p>
     <h1>Every review, all in one place.</h1>
     <p>A running record of what riders have said about their trips with Jehova Transportation across St. Maarten / St. Martin.</p>
+  </div>
+  <div class="wave-divider" style="bottom:-1px;">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C 240,90 480,0 720,30 C 960,60 1200,10 1440,45 L1440,80 L0,80 Z" fill="var(--paper)" />
+    </svg>
   </div>
 </header>
 
@@ -129,12 +146,13 @@
 -->
 <script>
   window.FIREBASE_CONFIG = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyCiVsprrYJXAzPckSV0ZA4aIqp1TXHZWHk",
+    authDomain: "jehova-transportation.firebaseapp.com",
+    projectId: "jehova-transportation",
+    storageBucket: "jehova-transportation.firebasestorage.app",
+    messagingSenderId: "753397196748",
+    appId: "1:753397196748:web:b118383b2c2a211ce9df69",
+    measurementId: "G-HLYT0KW5M4"
   };
 </script>
 
